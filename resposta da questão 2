@@ -1,1 +1,0 @@
-Criar mais um cmpo de input para informar o dado "pessoa politicamente exposta" e fazer o tratamento necessário ao novo campo na rotina de exibição da classificação de risco, caso seja indicado que a pessoa em questão é uma pessoa politicamente exposta.
