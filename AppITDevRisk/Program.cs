@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppITDevRisk.Repository;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -18,7 +19,7 @@ namespace AppITDevRisk
             int i = 1;
             List<Trade> lstTraders = new List<Trade>();
             
-            Execute execute = new Execute(new Trade());
+            Execute execute = new Execute();
 
             //Insert Trade date
             inpDate = Console.ReadLine();
@@ -33,15 +34,10 @@ namespace AppITDevRisk
                     try
                     {
                         do
-                        {
-                            
+                        {                            
                             inpValuesTraders = Console.ReadLine();
-                            string[] tradevalues = inpValuesTraders.Split(' ');
-                            Trade trade = new Trade();
-                            trade.Value = Convert.ToDouble(tradevalues[0]);
-                            trade.ClientSector = tradevalues[1];
-                            trade.NextPaymentDate = Convert.ToDateTime(execute.validDate(tradevalues[2]));
-                            lstTraders.Add(trade);
+                            var tradeRepo = new TradeRepository(new Trade());
+                            lstTraders.Add(tradeRepo.AddTrades(inpValuesTraders));
                             i++;
                         } while (i <= timesTraders);
                         

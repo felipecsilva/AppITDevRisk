@@ -9,11 +9,7 @@ namespace AppITDevRisk
 {
     class Execute
     {
-        private ITrade _iTrade;
-        public Execute(ITrade iTrade)
-        {
-            _iTrade = iTrade;
-        }
+
 
         public DateTime validDate(string pDate)
         {
@@ -30,14 +26,6 @@ namespace AppITDevRisk
             return timesTraders.ToString();
         }
 
-        public Trade insertTrade(string Values)
-        {
-            string[] tradevalues = Values.Split(' ');
-            _iTrade.Value = Convert.ToDouble(tradevalues[0]);
-            _iTrade.ClientSector = tradevalues[1];
-            _iTrade.NextPaymentDate = Convert.ToDateTime(validDate(tradevalues[2]));
-            return (Trade)_iTrade;
-        }
 
         public string verifyTradeCategory(List<Trade> trade, int pNumTraders, DateTime pDate)
         {
